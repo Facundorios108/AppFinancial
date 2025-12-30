@@ -10,11 +10,7 @@ import {
     faArrowRight,
     faHome,
     faChartLine,
-    faListAlt,
-    faEye,
     faStar,
-    faHistory,
-    faCog,
     faCheckCircle
 } from '@fortawesome/free-solid-svg-icons';
 

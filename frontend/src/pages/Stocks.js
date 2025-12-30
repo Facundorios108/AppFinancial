@@ -4,8 +4,7 @@ import {
     faSearch, 
     faArrowUp, 
     faArrowDown, 
-    faEdit,
-    faHistory
+    faEdit
 } from '@fortawesome/free-solid-svg-icons';
 import './Stocks.css';
 

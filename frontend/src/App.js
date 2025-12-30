@@ -3,18 +3,15 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import './components/Tooltip.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faShieldAlt, faPlus, faChevronRight, faArrowUp, faCalendarAlt, faUserCircle, faSync, faInfoCircle, faDollarSign, faWallet } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faUserCircle, faSync } from '@fortawesome/free-solid-svg-icons';
 import AddPositionModal from './components/AddPositionModal';
 import SellPositionModal from './components/SellPositionModal';
-import PortfolioTable from './components/PortfolioTable';
 import TransactionHistoryModal from './components/TransactionHistoryModal';
 import EditTransactionModal from './components/EditTransactionModal';
 import ConfirmModal from './components/ConfirmModal';
 import Sidebar from './components/Sidebar';
-import LoginScreen from './components/LoginScreen'; // Import LoginScreen
-import Tooltip from './components/Tooltip';
-import FMPStatus from './components/FMPStatus'; // Import FMP Status
-import PortfolioChart from './components/PortfolioChart'; // Import Portfolio Chart
+import LoginScreen from './components/LoginScreen';
+import FMPStatus from './components/FMPStatus';
 import Dashboard from './pages/Dashboard'; // Import Dashboard
 import Stocks from './pages/Stocks'; // Import Stocks
 import Watchlist from './pages/Watchlist'; // Import Watchlist
