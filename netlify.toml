@@ -11,3 +11,4 @@
 # Variables de entorno (ajusta según tus necesidades)
 [build.environment]
   NODE_VERSION = "18"
+  DISABLE_ESLINT_PLUGIN = "true"
