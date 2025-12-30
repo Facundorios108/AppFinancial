@@ -1,0 +1,112 @@
+/* Portal Tooltip Styles - Premium Design */
+.portal-tooltip {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 12px;
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.3),
+        0 10px 10px -5px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    padding: 0;
+    min-width: 280px;
+    max-width: 320px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #f1f5f9;
+    animation: tooltipFadeIn 0.2s ease-out;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.portal-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #1e293b;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.portal-tooltip .tooltip-content {
+    padding: 16px 20px;
+}
+
+.portal-tooltip .tooltip-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: #60a5fa;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.01em;
+}
+
+.portal-tooltip .tooltip-title::before {
+    content: '💡';
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.portal-tooltip .tooltip-description {
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.tooltip-trigger {
+    display: inline-flex;
+    align-items: center;
+    cursor: help;
+    transition: all 0.2s ease;
+}
+
+.tooltip-trigger .info-icon {
+    color: #64748b;
+    font-size: 14px;
+    margin-left: 6px;
+    transition: all 0.2s ease;
+}
+
+.tooltip-trigger:hover .info-icon {
+    color: #60a5fa;
+    transform: scale(1.1);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .portal-tooltip {
+        min-width: 260px;
+        max-width: 300px;
+        font-size: 13px;
+    }
+    
+    .portal-tooltip .tooltip-content {
+        padding: 14px 16px;
+    }
+    
+    .portal-tooltip .tooltip-title {
+        font-size: 14px;
+    }
+    
+    .portal-tooltip .tooltip-description {
+        font-size: 12px;
+    }
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-100%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-100%) scale(1);
+    }
+}

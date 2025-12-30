@@ -1,0 +1,81 @@
+.confirm-modal {
+    max-width: 600px;
+    max-height: 30vh;
+    width: 90%;
+    min-height: auto;
+    text-align: center;
+    padding: 0;
+}
+
+.confirm-modal .modal-header {
+    text-align: center;
+    display: block !important; /* Override flex layout */
+    justify-content: center !important;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
+.confirm-modal .modal-header h2 {
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    font-size: 1.5rem;
+.confirm-modal .modal-body {
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+}
+
+.confirm-modal .modal-body p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    white-space: pre-line; /* Preserve line breaks */
+    text-align: center;
+}   white-space: pre-line; /* Preserve line breaks */
+    text-align: left;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid #252e3e;
+    background-color: #1a2332;
+}
+
+.btn {
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+}
+
+.btn-secondary {
+    background-color: #374151;
+    color: #e2e8f0;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+}

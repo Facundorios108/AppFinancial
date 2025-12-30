@@ -1,0 +1,188 @@
+.modal-content.transaction-modal {
+    width: 95vw;
+    max-width: 900px;
+    min-height: auto;
+    max-height: 80vh;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-modal .modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction-modal .modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.transaction-modal .close-button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.75rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.transaction-modal .modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+/* Contenedor para la tabla con scroll */
+.table-container {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 55vh; /* Reducir altura de la tabla */
+    border: 1px solid #334155;
+    border-radius: 8px;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0; /* Quitar margin ya que estará en container */
+    min-width: 600px; /* Ancho mínimo para mantener estructura */
+}
+
+.transaction-table th,
+.transaction-table td {
+    border-bottom: 1px solid #334155; /* Color más moderno */
+    padding: 12px 16px; /* Más padding para mejor spacing */
+    text-align: left;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Agregar puntos suspensivos si el texto es muy largo */
+}
+
+.transaction-table th {
+    background-color: #1e293b; /* Color más moderno */
+    font-weight: 600;
+    color: #f1f5f9; /* Texto más claro */
+    position: sticky; /* Hacer que el header se mantenga fijo */
+    top: 0;
+    z-index: 1;
+}
+
+.transaction-table tbody tr:hover {
+    background-color: #334155; /* Color más moderno */
+    transition: background-color 0.2s ease;
+}
+
+.transaction-actions {
+    text-align: center;
+}
+
+.transaction-actions .action-btn {
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+.transaction-actions .action-btn:hover {
+    color: #fff;
+}
+
+.transaction-actions .edit-btn:hover {
+    color: #3b82f6; /* Blue-500 */
+}
+
+.transaction-actions .delete-btn:hover {
+    color: #ef4444; /* Red-500 */
+}
+
+.pnl-positive {
+    color: #10b981;
+}
+
+.pnl-negative {
+    color: #ef4444;
+}
+
+/* Responsive design para móviles */
+@media (max-width: 768px) {
+    .transaction-modal .modal-content {
+        max-width: 95vw;
+        max-height: 85vh;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    
+    .table-container {
+        max-height: 50vh;
+        margin-top: 15px;
+    }
+    
+    .transaction-table {
+        min-width: 500px; /* Reducir ancho mínimo en móvil */
+        font-size: 0.8rem;
+    }
+    
+    .transaction-table th,
+    .transaction-table td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .transaction-actions .action-btn {
+        font-size: 14px;
+        margin: 0 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .transaction-modal .modal-content {
+        max-width: 98vw;
+        max-height: 90vh;
+        padding: 0.75rem;
+        margin: 0.5rem;
+    }
+    
+    .table-container {
+        max-height: 45vh;
+    }
+    
+    .transaction-table {
+        min-width: 450px;
+        font-size: 0.75rem;
+    }
+    
+    .transaction-table th,
+    .transaction-table td {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+    }
+}

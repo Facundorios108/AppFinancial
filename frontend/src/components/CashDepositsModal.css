@@ -1,0 +1,259 @@
+.cash-deposits-modal {
+    max-width: 700px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cash-deposits-modal .modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #2d3748;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cash-deposits-modal .modal-header h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.cash-deposits-modal .modal-icon {
+    color: #10b981;
+}
+
+.cash-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: #1a202c;
+    border-bottom: 1px solid #2d3748;
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: #2d3748;
+    border-radius: 8px;
+}
+
+.summary-label {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.summary-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.summary-item.positive .summary-value {
+    color: #10b981;
+}
+
+.summary-item.negative .summary-value {
+    color: #ef4444;
+}
+
+.cash-deposits-modal .modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: #9ca3af;
+}
+
+.empty-state p {
+    margin: 0.5rem 0;
+}
+
+.empty-state-hint {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.deposits-list {
+    width: 100%;
+}
+
+.deposits-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.deposits-table thead th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    background-color: #1a202c;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #2d3748;
+}
+
+.deposits-table tbody tr {
+    border-bottom: 1px solid #2d3748;
+    transition: background-color 0.2s;
+}
+
+.deposits-table tbody tr:hover {
+    background-color: #1a202c;
+}
+
+.deposits-table tbody td {
+    padding: 1rem;
+}
+
+.type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.type-badge.deposit {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.type-badge.withdrawal {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.deposits-table .amount {
+    font-weight: 600;
+    text-align: right;
+}
+
+.deposits-table .amount.positive {
+    color: #10b981;
+}
+
+.deposits-table .amount.negative {
+    color: #ef4444;
+}
+
+.cash-deposits-modal .modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #2d3748;
+    background-color: #1a202c;
+}
+
+.info-text {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #9ca3af;
+    text-align: center;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.action-btn {
+    background: transparent;
+    border: 1px solid #2d3748;
+    color: #9ca3af;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background-color: #2d3748;
+}
+
+.edit-btn:hover {
+    color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.delete-btn:hover {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.save-btn {
+    color: #10b981;
+    border-color: #10b981;
+}
+
+.save-btn:hover {
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.cancel-btn {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.cancel-btn:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Edit Inputs */
+.edit-input {
+    background-color: #1a202c;
+    border: 1px solid #2d3748;
+    color: #e2e8f0;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    width: 100%;
+}
+
+.edit-input:focus {
+    outline: none;
+    border-color: #10b981;
+}
+
+.date-input {
+    max-width: 150px;
+}
+
+.amount-input {
+    max-width: 120px;
+    text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cash-summary {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .deposits-table {
+        font-size: 0.875rem;
+    }
+
+    .deposits-table thead th,
+    .deposits-table tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+}

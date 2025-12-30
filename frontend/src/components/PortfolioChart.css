@@ -1,0 +1,1122 @@
+/* Portfolio Chart Widget Styles */
+.portfolio-chart-widget {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 24px;
+    color: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-chart-widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-chart-widget::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Chart Header */
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.chart-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.chart-icon {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.chart-period {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Chart Stats */
+.chart-stats {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.current-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+    display: block;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.change-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.change-indicator.positive {
+    color: #10b981;
+}
+
+.change-indicator.negative {
+    color: #ef4444;
+}
+
+.trend-icon {
+    font-size: 14px;
+}
+
+.change-amount {
+    font-weight: 600;
+}
+
+.change-percent {
+    opacity: 0.9;
+}
+
+/* Chart Container */
+.chart-container {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    min-height: 200px;
+}
+
+/* Chart Placeholder */
+.chart-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 320px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 24px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.placeholder-icon {
+    font-size: 48px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 16px;
+}
+
+.placeholder-content {
+    position: relative;
+    z-index: 2;
+}
+
+.placeholder-content h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.placeholder-content p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Chart Period Dropdown */
+.chart-period-dropdown {
+    position: relative;
+    z-index: 200;
+}
+
+.period-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    z-index: 101;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.period-selector:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.15);
+}
+
+.period-selector.open {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.period-icon {
+    font-size: 14px;
+}
+
+.period-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.dropdown-arrow {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.rotated {
+    transform: rotate(180deg);
+}
+
+.period-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 16px;
+    min-width: 180px;
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    animation: slideDown 0.2s ease-out;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-12px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.period-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    user-select: none;
+    position: relative;
+    min-height: 52px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.period-option:first-child {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.period-option:last-child {
+    border-bottom: none;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.period-option:hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+    border-left: 4px solid #3b82f6;
+    padding-left: 16px;
+}
+
+.period-option.selected {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15));
+    border-left: 4px solid #3b82f6;
+    padding-left: 16px;
+}
+
+.period-option:active {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2));
+}
+
+.option-icon {
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.option-label {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(241, 245, 249, 0.95);
+    letter-spacing: 0.25px;
+}
+
+.selected-indicator {
+    font-size: 14px;
+    color: #3b82f6;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+/* ============================================== */
+/* ELEGANT LOADING STYLES */
+/* ============================================== */
+
+/* Subtle loading overlay for when updating existing data */
+.chart-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(2px);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.loading-indicator {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading dots animation */
+.loading-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.loading-dots .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    animation: dotPulse 1.4s ease-in-out infinite;
+}
+
+.loading-dots .dot:nth-child(1) { animation-delay: 0s; }
+.loading-dots .dot:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+    0%, 80%, 100% { 
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    40% { 
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Loading icon in title */
+.title-loading-icon {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-left: 8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Improved loading content for empty state */
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 40px 20px;
+}
+
+.loading-content .loading-icon {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    animation: gentleSpin 2s linear infinite;
+}
+
+.loading-content p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-weight: 500;
+}
+
+@keyframes gentleSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chart-loading-overlay {
+        border-radius: 16px;
+    }
+    
+    .loading-indicator {
+        padding: 12px 20px;
+    }
+    
+    .loading-dots .dot {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .title-loading-icon {
+        font-size: 12px;
+    }
+}
+
+/* ============================================== */
+/* END ELEGANT LOADING STYLES */
+/* ============================================== */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolio-chart-widget {
+        padding: 20px;
+        min-height: 280px;
+    }
+    
+    .chart-title {
+        font-size: 16px;
+    }
+    
+    .current-value {
+        font-size: 24px;
+    }
+    
+    .chart-period {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+    
+    .change-indicator {
+        font-size: 13px;
+    }
+    
+    .chart-container {
+        min-height: 160px;
+    }
+    
+    .chart-placeholder {
+        height: 280px;
+        padding: 20px;
+    }
+    
+    .placeholder-icon {
+        font-size: 40px;
+    }
+    
+    .placeholder-content h4 {
+        font-size: 18px;
+    }
+    
+    .placeholder-content p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-chart-widget {
+        padding: 16px;
+        min-height: 260px;
+        border-radius: 16px;
+    }
+    
+    .chart-header {
+        margin-bottom: 16px;
+    }
+    
+    .chart-title {
+        font-size: 15px;
+        gap: 10px;
+    }
+    
+    .chart-icon {
+        font-size: 18px;
+    }
+    
+    .current-value {
+        font-size: 22px;
+    }
+    
+    .chart-stats {
+        margin-bottom: 16px;
+    }
+    
+    .chart-container {
+        min-height: 140px;
+    }
+    
+    .chart-placeholder {
+        height: 260px;
+        padding: 16px;
+        border-radius: 16px;
+    }
+}
+
+/* ============================================== */
+/* WIDGET MODE STYLES */
+/* ============================================== */
+
+/* Widget content wrapper - no background/padding since parent widget provides it */
+.widget-chart-content {
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Widget Header Styles */
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 10;
+    min-height: 32px;
+}
+
+.widget-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.widget-icon {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    flex-shrink: 0;
+}
+
+.widget-title-container h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.widget-actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 100;
+}
+
+/* Widget Period Selector - Compact version */
+.widget-period-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 100px;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    z-index: 50;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.widget-period-selector:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.15);
+}
+
+.widget-period-selector.open {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2);
+}
+
+.period-label-small {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    white-space: nowrap;
+}
+
+/* Widget dropdown menu - positioned relative to widget */
+.period-dropdown-menu.widget-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 180px;
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+/* Widget Chart Stats - Compact version */
+.widget-chart-stats {
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 28px;
+}
+
+.widget-chart-stats .current-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+.widget-chart-stats .change-indicator {
+    font-size: 13px;
+    font-weight: 500;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.widget-chart-stats .trend-icon {
+    font-size: 12px;
+}
+
+/* Widget Chart Container */
+.widget-chart-container {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    min-height: 200px;
+    height: calc(100% - 80px); /* Account for header and stats with padding */
+    overflow: hidden;
+}
+
+/* Widget responsive adjustments */
+@media (max-width: 768px) {
+    .widget-header {
+        margin-bottom: 14px;
+        min-height: 28px;
+    }
+    
+    .widget-title-container h3 {
+        font-size: 15px;
+    }
+    
+    .widget-icon {
+        font-size: 15px;
+    }
+    
+    .widget-period-selector {
+        padding: 6px 10px;
+        min-width: 90px;
+    }
+    
+    .period-label-small {
+        font-size: 12px;
+    }
+    
+    .widget-chart-stats {
+        margin-bottom: 14px;
+        gap: 8px;
+        min-height: 24px;
+    }
+    
+    .widget-chart-stats .current-value {
+        font-size: 20px;
+    }
+    
+    .widget-chart-stats .change-indicator {
+        font-size: 12px;
+        gap: 4px;
+    }
+    
+    .widget-chart-container {
+        min-height: 180px;
+        height: calc(100% - 70px);
+    }
+    
+    .period-dropdown-menu.widget-dropdown {
+        min-width: 170px;
+        max-height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .widget-header {
+        margin-bottom: 12px;
+        min-height: 24px;
+    }
+    
+    .widget-title-container {
+        gap: 8px;
+    }
+    
+    .widget-title-container h3 {
+        font-size: 14px;
+    }
+    
+    .widget-icon {
+        font-size: 14px;
+    }
+    
+    .widget-period-selector {
+        padding: 5px 8px;
+        min-width: 75px;
+    }
+    
+    .period-label-small {
+        font-size: 11px;
+    }
+    
+    .widget-chart-stats {
+        margin-bottom: 12px;
+        gap: 6px;
+        min-height: 20px;
+    }
+    
+    .widget-chart-stats .current-value {
+        font-size: 18px;
+    }
+    
+    .widget-chart-stats .change-indicator {
+        font-size: 11px;
+        gap: 3px;
+    }
+    
+    .widget-chart-container {
+        min-height: 160px;
+        height: calc(100% - 60px);
+    }
+    
+    .period-dropdown-menu.widget-dropdown {
+        min-width: 150px;
+        max-height: 180px;
+    }
+}
+
+/* Period Gains Display - Horizontal Layout */
+.period-gains-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: rgba(15, 23, 42, 0.4);
+    border-radius: 12px;
+    border: 1px solid rgba(71, 85, 105, 0.2);
+    margin-bottom: 16px;
+}
+
+.period-label {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 120px;
+}
+
+.period-gains {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    justify-content: center;
+}
+
+.period-gains.positive {
+    color: #10b981;
+}
+
+.period-gains.negative {
+    color: #ef4444;
+}
+
+.gains-amount {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.gains-percent {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.gains-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    min-width: 100px;
+    justify-content: flex-end;
+}
+
+.gains-indicator.positive {
+    color: #10b981;
+}
+
+.gains-indicator.negative {
+    color: #ef4444;
+}
+
+.gains-indicator .trend-icon {
+    font-size: 0.75rem;
+}
+
+.period-trend {
+    text-transform: capitalize;
+}
+
+/* Mobile adjustments for period gains */
+@media (max-width: 768px) {
+    .period-gains-display {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+        text-align: center;
+    }
+    
+    .period-label {
+        min-width: auto;
+        margin-bottom: 0;
+    }
+    
+    .period-gains {
+        justify-content: center;
+        gap: 12px;
+    }
+    
+    .gains-amount {
+        font-size: 1.3rem;
+    }
+    
+    .gains-percent {
+        font-size: 0.9rem;
+    }
+    
+    .gains-indicator {
+        justify-content: center;
+        min-width: auto;
+        font-size: 0.8rem;
+    }
+}
+
+/* Smooth transition effects for chart content */
+.chart-container, .widget-chart-container {
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    transform: translateY(0);
+}
+
+.chart-container.visible, .widget-chart-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chart-container.hidden, .widget-chart-container.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+/* Transition Loading Overlay - Elegant and Professional */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.transition-loader {
+    background: rgba(28, 36, 51, 0.95);
+    border: 1px solid rgba(71, 85, 105, 0.4);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.loader-spinner {
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(16, 185, 129, 0.2);
+    border-top: 2px solid #10b981;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.transition-loader p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.025em;
+}
+
+/* Custom Date Range Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.custom-date-modal {
+    background-color: #1c2433;
+    padding: 0;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 95%;
+    max-width: 500px;
+    min-height: auto;
+    max-height: 80vh;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    overflow-y: auto;
+}
+
+.custom-date-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #334155;
+}
+
+.custom-date-modal .modal-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.custom-date-modal .close-button {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.75rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.custom-date-modal .close-button:hover {
+    color: #fff;
+}
+
+.custom-date-modal .modal-body {
+    padding: 1.5rem;
+}
+
+.date-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+.date-input {
+    padding: 0.75rem;
+    border: 1px solid #334155;
+    border-radius: 0.5rem;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-size: 0.875rem;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid #334155;
+    background-color: rgba(15, 23, 42, 0.3);
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+}
+
+.btn-secondary {
+    background-color: #374151;
+    color: #e5e7eb;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+}
+
+.btn-primary {
+    background-color: #10b981;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #059669;
+}
+
+.btn-primary:disabled {
+    background-color: #6b7280;
+    cursor: not-allowed;
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

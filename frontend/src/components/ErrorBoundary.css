@@ -1,0 +1,127 @@
+.error-boundary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.error-boundary-content {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.error-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.error-boundary-content h1 {
+    color: #1f2937;
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.error-message {
+    color: #6b7280;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.error-details {
+    text-align: left;
+    margin: 20px 0;
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.error-details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 12px;
+    user-select: none;
+}
+
+.error-details summary:hover {
+    color: #667eea;
+}
+
+.error-stack {
+    margin-top: 12px;
+}
+
+.error-stack p {
+    margin: 8px 0;
+    color: #dc2626;
+    font-size: 14px;
+}
+
+.error-stack pre {
+    background: #1f2937;
+    color: #f3f4f6;
+    padding: 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 8px 0;
+}
+
+.error-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.error-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.error-btn.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.error-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.error-btn.secondary {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.error-btn.secondary:hover {
+    background: #e5e7eb;
+    transform: translateY(-2px);
+}
+
+.error-btn:active {
+    transform: translateY(0);
+}

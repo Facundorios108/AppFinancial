@@ -1,0 +1,120 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #1c2433; /* Dark background from screenshot */
+    padding: 2rem;
+    border-radius: 0.75rem; /* Slightly more rounded corners */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 95%;
+    max-width: 650px;
+    min-height: auto;
+    max-height: 80vh;
+    color: #e2e8f0; /* light text */
+    border: 1px solid #334155;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700; /* Bold */
+    color: #fff;
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-button:hover {
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #94a3b8; /* Lighter text for labels from screenshot */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #334155; /* Darker border from screenshot */
+    border-radius: 0.5rem; /* Rounded from screenshot */
+    background-color: #252e3e; /* Darker input background */
+    color: #e2e8f0;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.form-group input::placeholder {
+    color: #718096;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-cancel,
+.btn-add {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem; /* Rounded from screenshot */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-cancel {
+    background-color: #4a5568;
+    color: #e2e8f0;
+}
+
+.btn-cancel:hover {
+    background-color: #718096;
+}
+
+.btn-add {
+    background-color: #10b981; /* Green from screenshot */
+    color: #fff;
+}
+
+.btn-add:hover {
+    background-color: #34d399;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+}

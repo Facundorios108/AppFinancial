@@ -1,0 +1,190 @@
+/* Ticker Autocomplete Styles */
+.autocompleteContainer {
+    position: relative;
+    width: 100%;
+}
+
+.autocompleteInput {
+    flex: 1;
+    min-width: 300px;
+    padding: 0.875rem 1rem;
+    background: #34495e;
+    border: 2px solid #4a6478;
+    border-radius: 8px;
+    color: #ecf0f1;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.autocompleteInput:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.autocompleteInput::placeholder {
+    color: #95a5a6;
+}
+
+.autocompleteInput:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #2c3e50;
+}
+
+.loadingIndicator {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadingSpinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(79, 172, 254, 0.3);
+    border-radius: 50%;
+    border-top-color: #4facfe;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.suggestionsList {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #34495e;
+    border: 2px solid #4a6478;
+    border-radius: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.suggestionItem {
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #3d566e;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.suggestionItem:last-child {
+    border-bottom: none;
+}
+
+.suggestionItem:hover,
+.suggestionItem.selected {
+    background: linear-gradient(135deg, 
+        rgba(76, 175, 80, 0.15) 0%, 
+        rgba(76, 175, 80, 0.1) 100%);
+    border-left: 3px solid #4CAF50;
+    padding-left: 17px;
+}
+
+.suggestionMain {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.suggestionSymbol {
+    color: #ecf0f1;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.suggestionName {
+    color: #bdc3c7;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.2;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.suggestionExchange {
+    color: #4CAF50;
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(76, 175, 80, 0.15);
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin-left: 10px;
+    white-space: nowrap;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+/* Scrollbar styling */
+.suggestionsList::-webkit-scrollbar {
+    width: 6px;
+}
+
+.suggestionsList::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.suggestionsList::-webkit-scrollbar-thumb {
+    background: rgba(79, 172, 254, 0.3);
+    border-radius: 3px;
+}
+
+.suggestionsList::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 172, 254, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .autocompleteInput {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    
+    .suggestionItem {
+        padding: 12px 16px;
+    }
+    
+    .suggestionName {
+        max-width: 200px;
+    }
+    
+    .suggestionsList {
+        max-height: 250px;
+    }
+}
+
+/* Focus trap for accessibility */
+.autocompleteContainer:focus-within .suggestionsList {
+    border-color: rgba(79, 172, 254, 0.3);
+}

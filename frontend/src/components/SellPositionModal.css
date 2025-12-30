@@ -1,0 +1,364 @@
+/* SellPositionModal.css */
+.sell-modal {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+    border-radius: 16px;
+    width: 95vw;
+    max-width: 700px;
+    min-height: auto;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    color: #e2e8f0;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+    background: rgba(15, 23, 42, 0.3);
+}
+
+.modal-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.modal-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+}
+
+.modal-title h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.close-btn {
+    background: rgba(71, 85, 105, 0.3);
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: rgba(220, 38, 38, 0.2);
+    color: #dc2626;
+}
+
+.modal-content {
+    padding: 1.5rem;
+}
+
+.position-info {
+    background: rgba(15, 23, 42, 0.3);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.position-info h4 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #10b981;
+}
+
+.position-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.2);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row span:first-child {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.detail-row span:last-child {
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.sell-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+.order-type-buttons {
+    display: flex;
+    background: rgba(71, 85, 105, 0.3);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.order-type-btn {
+    flex: 1;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.order-type-btn.active {
+    background: #dc2626;
+    color: white;
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+}
+
+.order-type-btn:hover:not(.active) {
+    background: rgba(148, 163, 184, 0.1);
+    color: #e2e8f0;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group input {
+    padding: 12px 16px;
+    background: rgba(71, 85, 105, 0.3);
+    border: 1px solid rgba(71, 85, 105, 0.5);
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.form-group input.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.price-input-container {
+    position: relative;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.price-input-container input {
+    padding-left: 40px;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.error-message svg {
+    font-size: 0.8rem;
+}
+
+.submit-error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 0;
+}
+
+.transaction-summary {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.transaction-summary h5 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #10b981;
+}
+
+.summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.proceeds {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.gain-loss.positive {
+    color: #10b981;
+}
+
+.gain-loss.negative {
+    color: #ef4444;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.cancel-btn {
+    flex: 1;
+    padding: 12px 16px;
+    background: rgba(71, 85, 105, 0.3);
+    border: 1px solid rgba(71, 85, 105, 0.5);
+    border-radius: 8px;
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: rgba(148, 163, 184, 0.2);
+    color: #e2e8f0;
+}
+
+.sell-confirm-btn {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sell-confirm-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+}
+
+.sell-confirm-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.loading-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sell-modal {
+        width: 95vw;
+        margin: 1rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-title h3 {
+        font-size: 1.1rem;
+    }
+    
+    .order-type-btn {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+}
