@@ -1,0 +1,13 @@
+{
+  "name": "appfinancial",
+  "version": "1.0.0",
+  "description": "Financial Portfolio Application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd frontend && npm start",
+    "dev:backend": "cd backend && python main.py",
+    "install:all": "cd frontend && npm install && cd ../backend && pip install -r requirements.txt"
+  },
+  "author": "",
+  "license": "ISC"
+}

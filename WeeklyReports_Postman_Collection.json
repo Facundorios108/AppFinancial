@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "12345678-1234-1234-1234-123456789012",
+		"name": "Weekly Reports API",
+		"description": "API endpoints for sending weekly financial reports",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Send Weekly Report to All Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/send-weekly-report",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"send-weekly-report"
+					]
+				},
+				"description": "Sends weekly reports to all users in Firestore database"
+			}
+		},
+		{
+			"name": "Send Test Report to Specific User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/send-test-report/{{user_email}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"send-test-report",
+						"{{user_email}}"
+					]
+				},
+				"description": "Sends a test weekly report to a specific user email"
+			}
+		},
+		{
+			"name": "Health Check - Get Stock Price",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/price/AAPL",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"price",
+						"AAPL"
+					]
+				},
+				"description": "Health check endpoint - gets stock price for AAPL"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "user_email",
+			"value": "tu-email@gmail.com",
+			"description": "Email address to send test report to"
+		}
+	]
+}
