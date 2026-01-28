@@ -40,6 +40,20 @@
 }
 .table-container {
     overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    border-radius: 0.75rem;
+}
+
+/* Mobile table optimization */
+@media (max-width: 768px) {
+    .table-container {
+        margin: 0 -12px;
+        border-radius: 0;
+    }
+    
+    .portfolio-table {
+        min-width: 800px; /* Force horizontal scroll on mobile */
+    }
 }
 
 .portfolio-table {
@@ -55,6 +69,23 @@
 .portfolio-table td {
     padding: 1rem 1.5rem;
     text-align: center;
+}
+
+/* Mobile table cells */
+@media (max-width: 768px) {
+    .portfolio-table th,
+    .portfolio-table td {
+        padding: 0.75rem 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-table th,
+    .portfolio-table td {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem;
+    }
 }
 
 .portfolio-table thead {

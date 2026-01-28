@@ -208,8 +208,14 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .sidebar {
-        width: 280px;
-        right: -280px;
+        width: 85vw;
+        max-width: 320px;
+        right: -85vw;
+        padding: 16px;
+    }
+    
+    .sidebar.open {
+        right: 0;
     }
     
     .nav-item {
@@ -220,5 +226,27 @@
     .nav-emoji {
         font-size: 1.1rem;
         margin-right: 10px;
+    }
+    
+    .sidebar-header h2 {
+        font-size: 1rem;
+    }
+    
+    .profile-section {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100vw;
+        max-width: none;
+        right: -100vw;
+        padding: 16px 12px;
+    }
+    
+    .nav-section-title {
+        font-size: 0.7rem;
+        padding: 0 12px;
     }
 }

@@ -7,6 +7,15 @@ body {
     padding: 24px;
     min-height: 100vh;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
 }
 
 /* Clean up unused styles */
@@ -39,6 +48,14 @@ body {
     padding: 0 16px;
 }
 
+/* Mobile container adjustment */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -47,6 +64,18 @@ header {
     padding: 24px 0 32px 0;
     position: relative;
     min-height: 120px;
+}
+
+/* Mobile responsive header */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 24px;
+        padding: 12px 16px 20px 16px;
+        min-height: auto;
+        gap: 16px;
+    }
 }
 
 header::after {
@@ -147,6 +176,17 @@ header::after {
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Mobile button optimization */
+@media (max-width: 768px) {
+    .add-position-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
+    }
 }
 
 .add-position-btn::before {
@@ -191,6 +231,15 @@ main {
     gap: 20px; /* Mucho más espacio entre tarjetas */
 }
 
+/* Mobile stats optimization */
+@media (max-width: 768px) {
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 100%;
+    }
+}
+
 @media (max-width: 600px) {
     .stats {
         grid-template-columns: 1fr;
@@ -210,7 +259,23 @@ main {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    min-height: 70px; /* Un poco más alto para llenar mejor */
+    width: 100%;
+}
+
+/* Mobile stat card optimization */
+@media (max-width: 768px) {
+    .stat-card {
+        padding: 14px 16px;
+        min-height: 65px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-card {
+        padding: 12px 14px;
+        min-height: 60px;
+    }
 }
 
 .stat-card::before {
@@ -291,6 +356,22 @@ Actualmente está al revés en el JavaScript. Se debe cambiar el orden de las se
     padding: 16px 18px !important; /* Igual que las otras tarjetas */
     min-height: 70px !important; /* Consistente */
     border-radius: 16px; /* Esquinas redondeadas consistentes */
+    width: 100%;
+}
+
+/* Mobile optimization for total value card */
+@media (max-width: 768px) {
+    .total-value-card {
+        padding: 14px 16px !important;
+        min-height: 65px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .total-value-card {
+        padding: 12px 14px !important;
+        min-height: 60px !important;
+    }
 }
 
 .total-value-card .icon-container {
@@ -3463,4 +3544,126 @@ html {
 .btn-primary:disabled {
     background-color: #6b7280;
     cursor: not-allowed;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE ENHANCEMENTS
+   ============================================ */
+
+/* Touch-friendly tap targets */
+@media (max-width: 768px) {
+    button, 
+    .btn, 
+    a, 
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Prevent text size adjustment on iOS */
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+    
+    /* Smoother scrolling on mobile */
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Container padding adjustments */
+    .container {
+        padding: 0;
+        max-width: 100%;
+    }
+    
+    /* Main content spacing */
+    main {
+        gap: 20px;
+        padding: 0 16px;
+    }
+    
+    /* Title adjustments */
+    .title h1 {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        line-height: 1.2;
+        word-break: break-word;
+    }
+    
+    .title p {
+        font-size: clamp(0.875rem, 3vw, 1rem);
+        line-height: 1.4;
+    }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+    
+    .container {
+        padding: 0;
+        max-width: 100%;
+    }
+    
+    header {
+        padding: 12px 0 16px 0;
+        margin-bottom: 16px;
+    }
+    
+    main {
+        gap: 16px;
+    }
+    
+    /* Stat cards full width on very small screens */
+    .stat-card {
+        min-height: 60px;
+        padding: 12px 14px;
+    }
+    
+    .stat-card .icon-container {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1em;
+    }
+    
+    .stat-card .text-content h2 {
+        font-size: 1.2em;
+    }
+    
+    .stat-card .text-content p {
+        font-size: 0.65rem;
+    }
+}
+
+/* Landscape orientation optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+    header {
+        min-height: auto;
+        margin-bottom: 16px;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+    body {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
 }

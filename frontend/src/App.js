@@ -486,7 +486,7 @@ function AppContent() {
             const sales = [];
             
             salesSnapshot.forEach((doc) => {
-                const saleData = doc.to_dict();
+                const saleData = doc.data();
                 sales.push({
                     id: doc.id,
                     ...saleData

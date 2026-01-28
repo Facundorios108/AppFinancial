@@ -137,7 +137,7 @@ const PortfolioTable = ({ positions, onTickerClick, onSellPosition, loadingTicke
                         }
 
                         return (
-                            <tr key={pos.ticker}> {/* Use ticker for a stable key */}
+                            <tr key={pos.ticker}>
                                 <td className="logo-cell">
                                     <div className="logo-wrapper">
                                         {tickerLogos[pos.ticker] ? (
