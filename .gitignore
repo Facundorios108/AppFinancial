@@ -4,6 +4,10 @@
 .env.email
 *.env
 
+# Large files
+*.png
+FR&CO Logo.png
+
 # API Keys and secrets
 firebase_service_account.json
 *.pem

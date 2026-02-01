@@ -57,14 +57,15 @@ const Sidebar = ({ isOpen, onClose, user, isGuest, onSignIn, onSignOut }) => {
                         {user ? (
                             <>
                                 <img 
-                                    src={user.photoURL} 
+                                    src={user.photoURL || ''} 
                                     alt={user.displayName} 
                                     className="profile-photo"
                                     onError={(e) => {
                                         logger.log('Sidebar profile photo failed to load:', user.photoURL);
                                         e.target.style.display = 'none';
-                                        e.target.nextSibling.style.display = 'block';
+                                        e.target.nextSibling.style.display = 'flex';
                                     }}
+                                    referrerPolicy="no-referrer"
                                 />
                                 <FontAwesomeIcon 
                                     icon={faUserCircle} 

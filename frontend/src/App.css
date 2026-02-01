@@ -4,7 +4,7 @@ body {
     background-attachment: fixed;
     color: #e2e8f0;
     margin: 0;
-    padding: 24px;
+    padding: 20px;
     min-height: 100vh;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -45,14 +45,15 @@ body {
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 20px;
+    width: 100%;
 }
 
 /* Mobile container adjustment */
 @media (max-width: 768px) {
     .container {
         max-width: 100%;
-        padding: 0;
+        padding: 0 12px;
     }
 }
 
@@ -72,7 +73,7 @@ header {
         flex-direction: column;
         align-items: stretch;
         margin-bottom: 24px;
-        padding: 12px 16px 20px 16px;
+        padding: 12px 0 20px 0;
         min-height: auto;
         gap: 16px;
     }
@@ -227,8 +228,8 @@ main {
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
-    gap: 20px; /* Mucho más espacio entre tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 20px;
 }
 
 /* Mobile stats optimization */
@@ -243,23 +244,24 @@ main {
 @media (max-width: 600px) {
     .stats {
         grid-template-columns: 1fr;
-        gap: 16px; /* Más espacio en móvil también */
+        gap: 16px;
     }
 }
 
 .stat-card {
     background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    padding: 16px 18px; /* Más padding para llenar mejor */
-    border-radius: 16px; /* Esquinas más redondeadas (ovaladas) */
+    padding: 16px 18px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
-    gap: 12px; /* Más espacio entre icon y texto */
+    gap: 12px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); 
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     width: 100%;
+    box-sizing: border-box;
 }
 
 /* Mobile stat card optimization */
@@ -1289,6 +1291,7 @@ html {
     justify-content: center;
     overflow: hidden;
     position: relative;
+    padding: 0;
 }
 
 .profile-btn:hover {
@@ -1301,7 +1304,11 @@ html {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .profile-btn.no-user {
@@ -1593,6 +1600,8 @@ html {
     display: flex;
     flex-direction: column;
     min-height: 350px;
+    position: relative;
+    width: 100%;
 }
 
 .widget:hover {
@@ -1892,6 +1901,7 @@ html {
 .label-with-tooltip {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
     margin-bottom: 4px;
 }
@@ -2045,15 +2055,15 @@ html {
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Columna principal 2/3, columna lateral 1/3 */
-    /* Define áreas explícitas para alinear filas entre columnas */
+    grid-template-columns: 2fr 1fr;
     grid-template-areas:
         "stats best"
         "performance health";
-    grid-template-rows: auto auto; /* Ambas filas automáticas */
+    grid-template-rows: auto auto;
     gap: 24px;
-    align-items: stretch; /* Alinea elementos para que tengan la misma altura por fila */
-    margin-bottom: 32px; /* Añade espacio antes de la tabla */
+    align-items: start;
+    margin-bottom: 32px;
+    width: 100%;
 }
 
 /* Mapeo de áreas del grid para Dashboard */
@@ -2118,11 +2128,17 @@ html {
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 20px;
+    width: 100%;
+}
+
+.stats-grid .stat-card {
+    width: 100%;
 }
 
 .stats-grid .stat-card.total-value-card {
-    grid-column: span 2; /* La tarjeta de valor ocupa las dos columnas completas arriba */
+    grid-column: span 2;
+    margin-bottom: 4px;
 }
 
 /* Responsive styles for stats grid */

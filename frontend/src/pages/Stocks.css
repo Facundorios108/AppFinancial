@@ -60,9 +60,24 @@
 }
 
 .stocks-stats {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 20px;
     margin-bottom: 30px;
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    .stocks-stats {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .stocks-stats {
+        grid-template-columns: 1fr;
+    }
 }
 
 .stat-card {
@@ -71,7 +86,9 @@
     border-radius: 12px;
     padding: 20px;
     min-width: 140px;
+    width: 100%;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .stat-label {
@@ -99,7 +116,7 @@
 .stocks-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
+    gap: 20px;
     margin-top: 20px;
 }
 

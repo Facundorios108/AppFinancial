@@ -1660,24 +1660,26 @@ function AppContent() {
                     <div className="header-actions">
                         <button className={`profile-btn ${!user ? 'no-user' : ''}`} onClick={toggleSidebar}>
                             {user ? (
-                                <img 
-                                    src={user.photoURL} 
-                                    alt="Profile" 
-                                    onError={(e) => {
-                                        logger.log('Profile photo failed to load:', user.photoURL);
-                                        e.target.style.display = 'none';
-                                        e.target.nextSibling.style.display = 'block';
-                                    }}
-                                />
+                                <>
+                                    <img 
+                                        src={user.photoURL || ''} 
+                                        alt="Profile" 
+                                        onError={(e) => {
+                                            logger.log('Profile photo failed to load:', user.photoURL);
+                                            e.target.style.display = 'none';
+                                            e.target.nextSibling.style.display = 'flex';
+                                        }}
+                                        referrerPolicy="no-referrer"
+                                    />
+                                    <FontAwesomeIcon 
+                                        icon={faUserCircle} 
+                                        size="2x" 
+                                        style={{ display: 'none' }}
+                                    />
+                                </>
                             ) : (
                                 <FontAwesomeIcon icon={faUserCircle} size="2x" />
                             )}
-                            {user && (
-                                <FontAwesomeIcon 
-                                    icon={faUserCircle} 
-                                    size="2x" 
-                                    style={{ display: 'none' }}
-                                />
                             )}
                         </button>
                         <div className="action-row">
