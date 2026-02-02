@@ -17,7 +17,7 @@ import Stocks from './pages/Stocks'; // Import Stocks
 import Watchlist from './pages/Watchlist'; // Import Watchlist
 import Realized from './pages/Realized'; // Import Realized
 import { auth, db } from './firebase';
-import { onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut as firebaseSignOut } from "firebase/auth";
+import { onAuthStateChanged, signInWithRedirect, getRedirectResult, GoogleAuthProvider, signOut as firebaseSignOut } from "firebase/auth";
 import { collection, doc, addDoc, getDocs, writeBatch, deleteDoc, getDoc, setDoc } from "firebase/firestore";
 import { formatCurrency } from './utils/formatting';
 import { calculatePortfolioXIRR } from './utils/xirr';
@@ -509,25 +509,11 @@ function AppContent() {
         provider.setCustomParameters({ prompt: 'select_account' });
         setIsSigningIn(true);
         try {
-            const result = await signInWithPopup(auth, provider);
-            setIsGuest(false);
-            setIsSidebarOpen(false);
-
-            if (result.user) {
-                // Crear usuario en Firestore si no existe
-                const userRef = doc(db, "users", result.user.uid);
-                const userSnap = await getDoc(userRef);
-                if (!userSnap.exists()) {
-                    await setDoc(userRef, {
-                        email: result.user.email,
-                        name: result.user.displayName || "",
-                    });
-                }
-                loadPortfolio(result.user.uid);
-            }
+            // Usar redirect en lugar de popup (mejor para móviles y evita COOP errors)
+            await signInWithRedirect(auth, provider);
+            // El resto se maneja en el useEffect que detecta el redirect
         } catch (error) {
             logger.error("Error signing in with Google:", error);
-        } finally {
             setIsSigningIn(false);
         }
     };
@@ -905,6 +891,24 @@ function AppContent() {
     // NEW: Unified function to fetch market prices with Yahoo Finance + FMP fallback
     const fetchAllMarketPrices = async (retryCount = 0, isManualAction = false) => {
         if (positions.length === 0) return;
+        
+        // IMPORTANTE: El backend no está desplegado en producción
+        // Solo funciona en desarrollo local
+        const isProduction = window.location.hostname !== 'localhost';
+        
+        if (isProduction) {
+            logger.log('⚠️ Backend not available in production. Price updates disabled.');
+            // En producción, mostrar los precios de compra
+            setPositions(prevPositions => 
+                prevPositions.map(pos => ({
+                    ...pos,
+                    marketValue: pos.avgPurchasePrice,
+                    priceLoading: false,
+                    priceError: false
+                }))
+            );
+            return;
+        }
         
         setIsRefreshing(true);
         const tickers = [...new Set(positions.map(pos => pos.ticker))];
@@ -1298,6 +1302,32 @@ function AppContent() {
         logger.log("Setting up auth listener");
         let isMounted = true;
         
+        // Manejar el resultado del redirect de Google Sign-In
+        getRedirectResult(auth)
+            .then(async (result) => {
+                if (result && result.user) {
+                    logger.log("User signed in via redirect:", result.user.email);
+                    setIsGuest(false);
+                    setIsSidebarOpen(false);
+                    setIsSigningIn(false);
+                    
+                    // Crear usuario en Firestore si no existe
+                    const userRef = doc(db, "users", result.user.uid);
+                    const userSnap = await getDoc(userRef);
+                    if (!userSnap.exists()) {
+                        await setDoc(userRef, {
+                            email: result.user.email,
+                            name: result.user.displayName || "",
+                        });
+                    }
+                    // El onAuthStateChanged se encargará de cargar el portfolio
+                }
+            })
+            .catch((error) => {
+                logger.error("Error handling redirect result:", error);
+                setIsSigningIn(false);
+            });
+        
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (!isMounted) return;
             
@@ -1679,7 +1709,6 @@ function AppContent() {
                                 </>
                             ) : (
                                 <FontAwesomeIcon icon={faUserCircle} size="2x" />
-                            )}
                             )}
                         </button>
                         <div className="action-row">
