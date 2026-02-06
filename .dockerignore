@@ -1,0 +1,61 @@
+# Node modules y frontend
+node_modules/
+frontend/node_modules/
+frontend/build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
+weekly_reports.log
+
+# Tests
+test_*.py
+
+# Local env files
+.env
+.env.local
+*.env
+
+# Imágenes
+*.png
+FR&CO Logo.png
+
+# Scripts locales
+manage_reports.sh
+start_reports.sh
+start_server.sh
+
+# Otros
+README*.md
+*.md
+netlify.toml
+package.json
+test_watchlist.js
+WeeklyReports_Postman_Collection.json
