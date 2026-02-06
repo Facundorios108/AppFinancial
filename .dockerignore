@@ -43,6 +43,9 @@ test_*.py
 .env.local
 *.env
 
+# Firebase credentials (usar variable de entorno en Railway)
+backend/firebase_service_account.json
+
 # Imágenes
 *.png
 FR&CO Logo.png

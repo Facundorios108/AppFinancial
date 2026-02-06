@@ -11,9 +11,6 @@ RUN pip install --no-cache-dir -r backend/requirements.txt
 # Copiar todo el código del backend
 COPY backend ./backend
 
-# Copiar archivo de credenciales si existe
-COPY backend/firebase_service_account.json ./backend/firebase_service_account.json 2>/dev/null || true
-
 # Cambiar al directorio backend
 WORKDIR /app/backend
 
